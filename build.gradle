@@ -1,0 +1,45 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '6.5.0.3'
+    id 'org.springframework.boot' version '2.7.6'
+    id 'maven-publish'
+}
+
+group = 'my.project'
+version = 1
+sourceCompatibility = '17'
+
+compileJava {
+    options.compilerArgs << '-Xlint:deprecation'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform(SpringBootPlugin.BOM_COORDINATES)
+
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+    implementation "org.springframework.boot:spring-boot-starter"
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
+    implementation "org.springframework.kafka:spring-kafka"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
