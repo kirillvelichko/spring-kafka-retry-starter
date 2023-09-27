@@ -17,7 +17,9 @@ dependencies {
 
 ```yaml
 kafka:
-  auth-retry-interval-seconds: ${KAFKA_AUTH_RETRY_INTERVAL_SECONDS:60}
+  customizer:
+    enabled: true
+    auth-retry-interval-seconds: 120
 ```
 
 __Параметры:__
