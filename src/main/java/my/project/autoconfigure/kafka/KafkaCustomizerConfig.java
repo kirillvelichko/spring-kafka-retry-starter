@@ -9,7 +9,7 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 
 import java.time.Duration;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @RequiredArgsConstructor
 public class KafkaCustomizerConfig {
     private final KafkaCustomizerProps customizerProps;
