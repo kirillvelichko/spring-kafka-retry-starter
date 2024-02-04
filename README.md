@@ -9,6 +9,7 @@ dependencies {
     implementation "my.project:kafka-spring-boot-starter:1"
 }
 ```
+Требуется сборка и публикация в локальный репозиторий.
 
 #### Конфигурация
 
