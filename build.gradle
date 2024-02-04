@@ -11,10 +11,6 @@ group = 'my.project'
 version = 1
 sourceCompatibility = '17'
 
-compileJava {
-    options.compilerArgs << '-Xlint:deprecation'
-}
-
 repositories {
     mavenCentral()
 }
