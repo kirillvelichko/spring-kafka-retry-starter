@@ -1,18 +1,17 @@
-### Template for Spring Boot Starter 
-### Описание
+### Description
 
-По умолчанию в Spring Kafka при ошибке авторизации подключения к брокеру не выполняется переподключение, этот стартер задает свойства для переподключения.
+Стартер настраивает retry при ошибке авторизации подключения к Kafka-брокеру.
+По умолчанию в Spring Kafka при ошибке авторизации переподключение не выполняется.
 
-#### Подключение
+#### Gradle dependencies
 
 ```groovy
 dependencies {
     implementation "my.project:kafka-spring-boot-starter:1"
 }
 ```
-Требуется сборка и публикация в локальный репозиторий.
 
-#### Конфигурация
+#### Spring configuration
 
 ```yaml
 kafka:
@@ -34,9 +33,9 @@ __spring-boot version < 3.1.0__ или __настройка через созд�
 @Bean
 public ConcurrentKafkaListenerContainerFactory<Object, Object> kafkaListenerContainerFactory() {
         var factory = new ConcurrentKafkaListenerContainerFactory<>();
-        // Ваш ConsumerFactory
+        // Подставить ConsumerFactory
         factory.setConsumerFactory(getConsumerFactory());
-        // Необходимо использовать public static метод из класса KafkaCustomizerConfig
+        // Использовать static метод из класса KafkaCustomizerConfig
         factory.setContainerCustomizer(KafkaCustomizerConfig.getContainerCustomizer(60));
         return factory;
 }
