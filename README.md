@@ -3,7 +3,7 @@
 Стартер настраивает retry при ошибке авторизации подключения к Kafka-брокеру.
 По умолчанию в Spring Kafka при ошибке авторизации переподключение не выполняется.
 
-#### Gradle dependencies
+### Gradle dependencies
 
 ```groovy
 dependencies {
@@ -11,7 +11,7 @@ dependencies {
 }
 ```
 
-#### Spring configuration
+### Spring configuration
 
 ```yaml
 kafka:
